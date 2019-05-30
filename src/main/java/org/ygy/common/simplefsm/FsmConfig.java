@@ -7,6 +7,7 @@ public class FsmConfig {
     private String tableName;
     private String pkName;
     private String stateName;
+    private List<String> states;
     private List<FsmEven> fsmEvens;
 
     public String getTableName() {
@@ -39,5 +40,13 @@ public class FsmConfig {
 
     public void setFsmEvens(List<FsmEven> fsmEvens) {
         this.fsmEvens = fsmEvens;
+    }
+
+    public List<String> getStates() {
+        return states;
+    }
+
+    public void setStates(List<String> states) {
+        this.states = states;
     }
 }

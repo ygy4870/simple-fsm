@@ -1,0 +1,19 @@
+{
+  "tableName": "study_report",
+  "pkName": "id",
+  "stateName": "state",
+  "states":["0", "10", "20","30"],
+  "fsmEvens": [
+      {
+      "action": "add",
+      "type": "in",
+      "curStates": ["0"],
+      "tarState": "10"
+      },{
+      "action": "submit",
+      "type": "in",
+      "curStates": ["0", "10", "20"],
+      "tarState": "30"
+      }
+  ]
+}
