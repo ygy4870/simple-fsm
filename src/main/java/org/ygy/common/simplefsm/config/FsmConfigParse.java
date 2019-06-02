@@ -1,13 +1,17 @@
-package org.ygy.common.simplefsm;
+package org.ygy.common.simplefsm.config;
 
 import com.mchange.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
+import org.ygy.common.simplefsm.event.FsmEvent;
+import org.ygy.common.simplefsm.event.FsmEventType;
 import org.ygy.common.simplefsm.util.EduGsonUtils;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class FsmConfigParse {
 
@@ -41,7 +45,7 @@ public class FsmConfigParse {
         if (null == fsmConfig.getStates() || fsmConfig.getStates().size() < 1) {
 
         }
-        if (null == fsmConfig.getFsmEvens() || fsmConfig.getFsmEvens().size() < 1) {
+        if (null == fsmConfig.getFsmEvents() || fsmConfig.getFsmEvents().size() < 1) {
 
         }
         this.tran2In(fsmConfig);
@@ -49,11 +53,19 @@ public class FsmConfigParse {
     }
 
     private void tran2In(FsmConfig fsmConfig) {
-        List<FsmEven> fsmEvens = new ArrayList<>();
-        for (FsmEven fsmEven : fsmConfig.getFsmEvens()) {
-            fsmEvens.add(FsmEvenType.getByName(fsmEven.getType()).tran2InType(fsmEven));
+        List<FsmEvent> fsmEvens = new ArrayList<>();
+        for (FsmEvent fsmEven : fsmConfig.getFsmEvents()) {
+            fsmEvens.add(FsmEventType.getByName(fsmEven.getType()).tran2InType(fsmEven));
         }
-        fsmConfig.setFsmEvens(fsmEvens);
+        fsmConfig.setFsmEvents(fsmEvens);
+    }
+
+    public void events2Map(FsmConfig fsmConfig) {
+        Map<String, FsmEvent> eventMap = new HashMap<>();
+        for (FsmEvent fsmEven : fsmConfig.getFsmEvents()) {
+            eventMap.put(fsmEven.getAction(), fsmEven);
+        }
+        fsmConfig.setEventMap(eventMap);
     }
 
 }

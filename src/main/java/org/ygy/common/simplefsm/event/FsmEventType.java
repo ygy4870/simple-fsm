@@ -1,48 +1,48 @@
-package org.ygy.common.simplefsm;
+package org.ygy.common.simplefsm.event;
 
 import org.apache.commons.lang.StringUtils;
 
-public enum FsmEvenType {
+public enum FsmEventType {
 
     In("in"){
         @Override
-        public FsmEven tran2InType(FsmEven fsmEven) {
-            return fsmEven;
+        public FsmEvent tran2InType(FsmEvent fsmEvent) {
+            return fsmEvent;
         }
     },Gt("gt"){
         @Override
-        public FsmEven tran2InType(FsmEven fsmEven) {
+        public FsmEvent tran2InType(FsmEvent fsmEvent) {
             return null;
         }
     },Gtq("gtq"){
         @Override
-        public FsmEven tran2InType(FsmEven fsmEven) {
+        public FsmEvent tran2InType(FsmEvent fsmEvent) {
             return null;
         }
     },Lt("lt"){
         @Override
-        public FsmEven tran2InType(FsmEven fsmEven) {
+        public FsmEvent tran2InType(FsmEvent fsmEvent) {
             return null;
         }
     },Ltq("ltq"){
         @Override
-        public FsmEven tran2InType(FsmEven fsmEven) {
+        public FsmEvent tran2InType(FsmEvent fsmEvent) {
             return null;
         }
     },Default(""){
         @Override
-        public FsmEven tran2InType(FsmEven fsmEven) {
+        public FsmEvent tran2InType(FsmEvent fsmEvent) {
             return null;
         }
     };
 
-    public static FsmEvenType getByName(String name) {
+    public static FsmEventType getByName(String name) {
         if (StringUtils.isBlank(name)) {
             return Default;
         }
-        for (FsmEvenType fsmEvenType : FsmEvenType.values()) {
-            if (fsmEvenType.getName().equals(name)) {
-                return fsmEvenType;
+        for (FsmEventType fsmEventType : FsmEventType.values()) {
+            if (fsmEventType.getName().equals(name)) {
+                return fsmEventType;
             }
         }
         return Default;
@@ -50,12 +50,12 @@ public enum FsmEvenType {
 
     private String name;
 
-    public String validate(FsmEven fsmEven) {
+    public String validate(FsmEvent fsmEvent) {
         return null;
     }
-    public abstract FsmEven tran2InType(FsmEven fsmEven);
+    public abstract FsmEvent tran2InType(FsmEvent fsmEvent);
 
-    FsmEvenType(String name) {
+    FsmEventType(String name) {
         this.name = name;
     }
 

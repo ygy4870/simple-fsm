@@ -1,13 +1,17 @@
-package org.ygy.common.simplefsm;
+package org.ygy.common.simplefsm.event;
 
 import java.util.List;
+import java.util.Map;
 
-public class FsmEven {
+public class FsmEvent {
 
     private String action;
     private String type;
     private List<String> curStates;
     private String tarState;
+
+    // TODO 用于额外操作的数据
+    private Map<String, Object> data;
 
     public String getAction() {
         return action;
@@ -39,5 +43,13 @@ public class FsmEven {
 
     public void setTarState(String tarState) {
         this.tarState = tarState;
+    }
+
+    public Map<String, Object> getData() {
+        return data;
+    }
+
+    public void setData(Map<String, Object> data) {
+        this.data = data;
     }
 }

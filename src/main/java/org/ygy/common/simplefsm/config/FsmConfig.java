@@ -1,6 +1,9 @@
-package org.ygy.common.simplefsm;
+package org.ygy.common.simplefsm.config;
+
+import org.ygy.common.simplefsm.event.FsmEvent;
 
 import java.util.List;
+import java.util.Map;
 
 public class FsmConfig {
 
@@ -8,7 +11,10 @@ public class FsmConfig {
     private String pkName;
     private String stateName;
     private List<String> states;
-    private List<FsmEven> fsmEvens;
+    private List<FsmEvent> fsmEvents;
+
+    //
+    private Map<String, FsmEvent> eventMap;
 
     public String getTableName() {
         return tableName;
@@ -34,12 +40,12 @@ public class FsmConfig {
         this.stateName = stateName;
     }
 
-    public List<FsmEven> getFsmEvens() {
-        return fsmEvens;
+    public List<FsmEvent> getFsmEvents() {
+        return fsmEvents;
     }
 
-    public void setFsmEvens(List<FsmEven> fsmEvens) {
-        this.fsmEvens = fsmEvens;
+    public void setFsmEvents(List<FsmEvent> fsmEvents) {
+        this.fsmEvents = fsmEvents;
     }
 
     public List<String> getStates() {
@@ -48,5 +54,13 @@ public class FsmConfig {
 
     public void setStates(List<String> states) {
         this.states = states;
+    }
+
+    public Map<String, FsmEvent> getEventMap() {
+        return eventMap;
+    }
+
+    public void setEventMap(Map<String, FsmEvent> eventMap) {
+        this.eventMap = eventMap;
     }
 }

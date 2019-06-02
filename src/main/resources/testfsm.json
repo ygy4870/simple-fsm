@@ -1,5 +1,4 @@
 {
-  "type":"sql",
   "tableName": "study_report",
   "pkName": "id",
   "stateName": "state",

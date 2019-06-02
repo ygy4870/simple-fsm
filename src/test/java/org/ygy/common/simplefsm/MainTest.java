@@ -1,6 +1,8 @@
 package org.ygy.common.simplefsm;
 
 import org.assertj.core.util.Lists;
+import org.ygy.common.simplefsm.config.FsmConfig;
+import org.ygy.common.simplefsm.event.FsmEvent;
 import org.ygy.common.simplefsm.util.EduGsonUtils;
 
 import java.util.ArrayList;
@@ -15,14 +17,14 @@ public class MainTest {
         fsmConfig.setPkName("id");
         fsmConfig.setStateName("state");
 
-        List<FsmEven> fsmEvens = new ArrayList<>();
-        FsmEven fsmEven1 = new FsmEven();
+        List<FsmEvent> fsmEvens = new ArrayList<>();
+        FsmEvent fsmEven1 = new FsmEvent();
         fsmEven1.setAction("add");
         fsmEven1.setTarState("10");
         fsmEven1.setCurStates(Lists.newArrayList("0"));
         fsmEven1.setType("in");
 
-        FsmEven fsmEven2 = new FsmEven();
+        FsmEvent fsmEven2 = new FsmEvent();
         fsmEven2.setAction("submit");
         fsmEven2.setTarState("30");
         fsmEven2.setCurStates(Lists.newArrayList("0","10","20"));
